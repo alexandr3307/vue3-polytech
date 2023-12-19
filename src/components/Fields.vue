@@ -72,7 +72,7 @@
         this.$router.go(-1)
       },
       saveForm() {
-        this.$router.push({ path: '/form'})
+        this.$router.push({ path: '/save'})
       }
     }
   }

@@ -1,10 +1,12 @@
 <template>
-  
+  <FormTesting></FormTesting>
 </template>
 
 <script>
+  import FormTesting from '../components/FormTesting.vue'
   export default {
-    name: 'FormView'
+    name: 'FormView',
+    components: { FormTesting }
   }
 </script>
 

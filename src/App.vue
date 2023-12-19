@@ -5,9 +5,10 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div style="position:absolute;">
+    <RouterLink to="/auth">Авторизация</RouterLink>
   <RouterLink to="/">Формы</RouterLink>
   <RouterLink to="/update">Редактировать</RouterLink>
-  <RouterLink to="/auth">Авторизация</RouterLink>
+  <RouterLink to="/save">Сохраненная форма</RouterLink>
   </div>
   <RouterView class="view" />
 </template>

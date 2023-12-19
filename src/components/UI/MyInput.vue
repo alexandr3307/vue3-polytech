@@ -1,5 +1,5 @@
 <template>
-  <input :value="modelValue" @input="updateInput" type="text" class="input" :class="variant" :placeholder="placeholder" />
+  <input :value="modelValue" @input="updateInput" type="text" class="input" :class="[variant, errorClass]" :placeholder="placeholder" />
 </template>
 
 <script>
@@ -11,9 +11,18 @@
         default: '',
         type: String
       },
+      isRequired: {
+        default: false,
+        type: Boolean
+      },
       variant: {
         default: 'default',
         type: String,
+      }
+    },
+    computed: {
+      errorClass() {
+        return (this.modelValue.length === 0 && this.isRequired) ? 'errorClass' : ''
       }
     },
     methods: {
@@ -36,6 +45,8 @@
     padding: 30px;
     background: #ffffff;
   }
-
+  .errorClass {
+    border: red solid 1px;
+  }
   input { border-radius: 5px; border: 0; font-size: 16px; color: #9a9a9a; background: #F6F6F6 }
 </style>

@@ -5,7 +5,9 @@
       <div class="fields-registration-form-fields">
         <transition-group name="list" tag="p">
           <div v-for="(item, index) in fields" :key="index" class="fields-registration-form-field">
-            <MyInput v-model="item.content" type="text" :placeholder="item.name"></MyInput>
+            <MyInput v-model="item.content" type="text" :placeholder="item.name"
+                      :is-required="item.required">
+            </MyInput>
           </div>
         </transition-group>
         <MyCheckbox text="gray" label="Нажимая кнопку «Отправить», я принимаю условия политики конфиденциальности" v-model="check" :value="check"></MyCheckbox>
@@ -26,7 +28,7 @@
     computed: {
       ...mapState({
         fields: (state) => state.fields
-      })
+      }),
     }
   }
 </script>
@@ -35,6 +37,8 @@
 .fields-registration {
   background: #3EA748;
   width:100%;
+  min-height: 900px;
+  max-width: 600px;
   &-form {
     margin-top: 88px;
     margin-left: 90px;
@@ -43,5 +47,7 @@
     padding: 40px;
     border-radius: 20px;
   }
+
 }
+
 </style>
