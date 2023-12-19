@@ -63,4 +63,13 @@ import HelloWorld from './components/HelloWorld.vue'
       color: #3EA748;
     }
   }
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 1s ease;
+  }
+  .list-enter-from,
+  .list-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 </style>

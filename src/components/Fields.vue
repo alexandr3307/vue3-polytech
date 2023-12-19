@@ -13,7 +13,7 @@
       <template v-slot:buttons>
         <div class="buttons">
           <MyButton variant="outline" @click="">Скрипт</MyButton>
-          <MyButton @click="">Сохранить</MyButton>
+          <MyButton @click="saveForm">Сохранить</MyButton>
         </div>
       </template>
     </LeftMenu>
@@ -70,6 +70,9 @@
       },
       back() {
         this.$router.go(-1)
+      },
+      saveForm() {
+        this.$router.push({ path: '/form'})
       }
     }
   }

@@ -22,6 +22,11 @@ const router = createRouter({
       name: 'auth',
       component: () => import('../views/AuthView.vue')
     },
+    {
+      path: '/save',
+      name: 'save',
+      component: () => import('../views/FormView.vue')
+    },
   ]
 })
 

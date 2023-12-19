@@ -34,6 +34,7 @@
 }
 input {
   min-width: 16px;
+  cursor: pointer;
 }
   span {
     margin-left: 20px;

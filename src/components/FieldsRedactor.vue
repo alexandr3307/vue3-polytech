@@ -7,16 +7,18 @@
     </div>
     <div class="field-container">
       <h4>Поля</h4>
-      <div v-for="(item, index) in fields" :key="index" class="field">
+      <transition-group name="list" tag="p">
+        <div v-for="(item, index) in fields" :key="index" class="field list-item">
         <div class="delete-string">
           <span>{{ item.name }}</span>
-          <span class="delete-span">Удалить поле</span>
+          <span class="delete-span" @click="deleteClickedField(item.id)">Удалить поле</span>
         </div>
-        <MyInput variant="white" v-model="item.content" type="text" :placeholder="item.name"></MyInput>
+        <MyInput variant="white" v-model="item.name" type="text" :placeholder="item.name"></MyInput>
         <MyCheckbox label="Сделать поле обязательным" v-model="item.required" :value="item"></MyCheckbox>
       </div>
+      </transition-group>
       <div class="buttons">
-        <MyButton variant="outline-dashed">Добавить поле <img src="@/assets/plus.svg" alt="plus"></MyButton>
+        <MyButton variant="outline-dashed" @click="newField">Добавить поле <img src="@/assets/plus.svg" alt="plus"></MyButton>
         <MyButton variant="outline-dashed">Добавить страницу формы <img src="@/assets/plus.svg" alt="plus"></MyButton>
       </div>
     </div>
@@ -24,6 +26,7 @@
 </template>
 
 <script>
+  import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
   import MyButton from './UI/MyButton.vue'
   import MyInput from './UI/MyInput.vue'
   import MyCheckbox from './UI/MyCheckbox.vue'
@@ -32,26 +35,25 @@
     components: { MyCheckbox, MyInput, MyButton },
     data() {
       return {
-        fields: [
-          {
-            name: "Фамилия",
-            required: false,
-            id: 'family',
-            content: "",
-          },
-          {
-            name: "Фамилия",
-            required: false,
-            id: 'family',
-            content: "",
-          },
-          {
-            name: "Имя",
-            required: true,
-            id: 'name',
-            content: '',
-          }
-        ]
+      }
+    },
+    computed: {
+      ...mapState({
+        fields: (state) => state.fields
+      })
+    },
+    methods: {
+      ...mapMutations(['deleteField', 'addNewField']),
+      deleteClickedField(id) {
+        this.deleteField(id);
+      },
+      newField() {
+        this.addNewField({
+          name: "Новое поле",
+          required: false,
+          id: Math.random().toString(16).slice(2),
+          content: '',
+        })
       }
     }
   }
@@ -85,4 +87,5 @@
     color: #3EA748;
     cursor: pointer;
   }
+
 </style>
