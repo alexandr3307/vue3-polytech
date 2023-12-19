@@ -5,9 +5,9 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div style="position:absolute;">
-  <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/about">About</RouterLink>
-  <RouterLink to="/auth">Auth</RouterLink>
+  <RouterLink to="/">Формы</RouterLink>
+  <RouterLink to="/update">Редактировать</RouterLink>
+  <RouterLink to="/auth">Авторизация</RouterLink>
   </div>
   <RouterView class="view" />
 </template>
@@ -21,11 +21,17 @@ import HelloWorld from './components/HelloWorld.vue'
         url('./src/assets/cera-pro/CeraPro-Regular.woff2') format('woff2'),
         url('./src/assets/cera-pro/CeraPro-Regular.woff') format('woff');
   }
-* {
-  font-family: Cera Pro,serif;
-}
+  * {
+    font-family: Cera Pro,serif;
+  }
   h3 {
     font-size: 40px;
+    color: #000000;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 24px;
+    font-weight: 700;
     color: #000000;
   }
   #app {
@@ -39,6 +45,22 @@ import HelloWorld from './components/HelloWorld.vue'
     color: #676767;
     a {
       color: #74bd93;
+    }
+  }
+  .container {
+    display: flex;
+    width: 1440px;
+    height: 900px;
+    background: #f6f6f6;
+    &-divided {
+      display: flex;
+    }
+    .item {
+      font-weight: 500;
+      padding-top: 16px;
+    }
+    .active {
+      color: #3EA748;
     }
   }
 </style>

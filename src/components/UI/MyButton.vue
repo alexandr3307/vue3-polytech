@@ -25,9 +25,11 @@
     cursor: pointer;
     border-radius: 10px;
     height: fit-content;
+    margin-top: 10px;
   }
   .lg {
-    padding: 16px 60px;
+    width: 160px;
+    height: 50px;
   }
   .sm {
     padding: 15px 20px;
@@ -51,5 +53,18 @@
     color: #3EA748;
     background: #ffffff;
     border: none;
+  }
+  .outline-dashed {
+    color: #3EA748;
+    border: 1px dashed #3EA748;
+    background: #ffffff;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px;
+    font-size: 16px;
+    height: 71px;
+    margin-top: 30px;
   }
 </style>

@@ -11,8 +11,9 @@
 </script>
 
 <style scoped lang="scss">
-.right-menu-container {
-  width: 825px;
-  margin: 80px auto;
-}
+  .right-menu-container {
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+  }
 </style>

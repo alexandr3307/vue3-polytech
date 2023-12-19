@@ -1,5 +1,5 @@
 <template>
-  <div class="forms">
+  <div class="container">
     <LeftMenu>
       <template v-slot:menu>
         <div v-for="(item, index) in menu" :key="index">
@@ -7,11 +7,13 @@
         </div>
       </template>
       <template v-slot:buttons>
-        <MyButton :variant="'outline'" @click="">Выход</MyButton>
+        <MyButton variant="outline" class="button" @click="">Выход</MyButton>
       </template>
     </LeftMenu>
     <RightMenu>
-      <component :is="block"></component>
+      <div class="right-menu-container">
+        <component :is="block"></component>
+      </div>
     </RightMenu>
   </div>
 </template>
@@ -48,24 +50,17 @@
       changeActive(id) {
         this.$router.push({ path: '/', query: { param: id } });
         this.activeId = id;
-        console.log(this.block);
       }
     }
   }
 </script>
 
 <style scoped lang="scss">
-.forms {
-  display: flex;
-  width: 1440px;
-  height: 900px;
-  background: #f6f6f6;
-  .item {
-    font-weight: 500;
-    padding-top: 16px;
+  .button {
+    margin-top: 570px;
   }
-  .active {
-    color: #3EA748;
+  .right-menu-container {
+    width: 825px;
+    margin: 80px auto;
   }
-}
 </style>

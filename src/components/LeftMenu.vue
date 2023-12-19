@@ -20,7 +20,7 @@
 
 <style scoped lang="scss">
 .left-menu {
-  width: 420px;
+  min-width: 420px;
   background: #ffffff;
   border-radius: 10px;
   &-content {
@@ -36,9 +36,7 @@
   }
   .menu {
     margin-top: 14px;
-  }
-  .buttons {
-    margin-top: 300px;
+    cursor: pointer;
   }
 }
 </style>
